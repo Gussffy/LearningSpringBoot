@@ -1,8 +1,10 @@
 package com.codefylab.learningspringboot.config;
 
+import com.codefylab.learningspringboot.entities.Category;
 import com.codefylab.learningspringboot.entities.Order;
 import com.codefylab.learningspringboot.entities.User;
 import com.codefylab.learningspringboot.entities.enums.OrderStatus;
+import com.codefylab.learningspringboot.repositories.CategoryRepository;
 import com.codefylab.learningspringboot.repositories.OrderRepository;
 import com.codefylab.learningspringboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,15 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public void run(String... args) throws Exception {
+
+        Category cat1 = new Category(null, "Eletronics");
+        Category cat2 = new Category(null, "Books");
+        Category cat3 = new Category(null, "Computers");
 
         User u1 = new User(null, "Láiza Kevelly", "laizak@gmail.com", "988888888", "12345678");
         User u2 = new User(null, "Gustavo Santos", "gustavo@gmail.com", "977777777", "12345678");
@@ -34,6 +43,7 @@ public class TestConfig implements CommandLineRunner {
         Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"),OrderStatus.CANCELLED, u1);
         Order o4 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"),OrderStatus.CANCELLED, u2);
 
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
         userRepository.saveAll(Arrays.asList(u1, u2, u3));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4));
 
