@@ -21,6 +21,4 @@ public class ProductService {
         Optional<Product> obj = repository.findById(id);
         return obj.get();
     }
-
-
 }
