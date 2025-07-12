@@ -1,16 +1,13 @@
 package com.codefylab.learningspringboot.resources;
 
 import com.codefylab.learningspringboot.entities.User;
-import com.codefylab.learningspringboot.repositories.UserRepository;
 import com.codefylab.learningspringboot.services.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
